@@ -96,6 +96,9 @@ void TCalculator::ToPostfix() {
 			st_char.push(infix[i]);
 		}
 	}
+	if (!st_char.empty() || !st_d.empty()) {
+		throw "ERROR";
+	}
 }
 
 bool TCalculator::CheckExpr(){
@@ -203,7 +206,11 @@ double TCalculator::Calc() {
 			st_char.push(infix[i]);
 		}
 	}
-	return st_d.pop();
+	double res=st_d.pop();
+	if (!st_char.empty()|| !st_d.empty()) {
+		throw "ERROR";
+	}
+	return res;
 }
 
 int TCalculator::prior(char t) {
