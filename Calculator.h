@@ -122,10 +122,7 @@ double TCalculator::Calc() {
 	st_d.clear();
 
 	for (int i = 0; i < infix.size(); i++) {
-		if (infix[i] == 's') {
-			st_char.push('s');
-			continue;
-		}
+		
 		if (infix[i] == ' ')
 			continue;
 		if (infix[i] >= '0' && infix[i] <= '9') {
@@ -142,7 +139,6 @@ double TCalculator::Calc() {
 		}
 		if (infix[i] == ')') {
 			while (st_char.top() != '(') {
-				if(st_char.top()=='s')
 				double b = st_d.pop();
 				double a = st_d.pop();
 				double t;
