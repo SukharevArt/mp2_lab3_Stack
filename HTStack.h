@@ -1,7 +1,9 @@
 #pragma once
 
 #include <iostream>
-using namespace std;
+#include<string>
+//using namespace std;
+
 
 template<class T>
 class TStack {
@@ -27,19 +29,17 @@ public:
 			pMem[i] = a.pMem[i];
 	}
 	TStack& operator=(const TStack& a) {
-		if (a == *this)
-			return* this;
 		if (a.size != size) {
 			delete[] pMem;
 			size = a.size;
 			pMem = new T[size];
- 		}
+		}
 		pos = a.pos;
 		for (int i = 0; i < pos; i++)
 			pMem[i] = a.pMem[i];
 		return *this;
 	}
-	bool operator==(const TStack& b) {
+	bool operator==(const TStack& b)const {
 		if (b.pos != pos)
 			return 0;
 		int flag = 1;
@@ -48,14 +48,14 @@ public:
 				flag = 0;
 		return flag;
 	}
-	bool operator!=(const TStack& b) {
+	bool operator!=(const TStack& b)const {
 		if (b.pos != pos)
 			return 1;
 		int flag = 1;
 		for (int i = 0; i < pos; i++)
 			if (pMem[i] != b.pMem[i])
 				flag = 0;
-		return 1-flag;
+		return 1 - flag;
 	}
 	bool full() {
 		return pos == size;
@@ -78,9 +78,10 @@ public:
 			throw "ES";
 		return pMem[pos - 1];
 	}
-	void clear(){
+	void clear() {
 		pos = 0;
 	}
 
 
 };
+
