@@ -176,6 +176,7 @@ namespace CalculatorWindow {
 		this->label2->Visible = true;
 		this->label3->Visible = true;
 		this->textBox3->Visible = true;
+		
 
 		try {
 			std::string expr = msclr::interop::marshal_as<std::string>(textBox1->Text);
